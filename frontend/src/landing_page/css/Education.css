@@ -1,0 +1,12 @@
+.edu-link {
+  color: #006eff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.edu-link:hover {
+  text-decoration: underline;
+  transform: translateX(4px);
+  color: #004ecb;
+}

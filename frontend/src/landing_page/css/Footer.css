@@ -1,0 +1,45 @@
+.footer-section {
+  background-color: #ffffff;
+  color: #212529;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-links a,
+.footer-link {
+  color: #000 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover,
+.footer-link:hover {
+  color: #007bff !important;
+  transform: translateX(3px);
+}
+
+.footer-icon {
+  color: #000;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.footer-icon:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+hr {
+  border-color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .footer-section .row > div {
+    text-align: center;
+  }
+
+  .footer-section img {
+    margin: 0 auto;
+  }
+}

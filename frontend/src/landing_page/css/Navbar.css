@@ -1,0 +1,63 @@
+.finvoke-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1030;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand {
+  color: #0a58ca;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.logo-hover {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-hover:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px rgba(0, 123, 255, 0.5));
+}
+
+.brand-text {
+  font-weight: 700;
+  color: #0a58ca;
+}
+
+.nav-link {
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.cool-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: #0a58ca;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.cool-link:hover::after {
+  width: 100%;
+}
+
+.cool-link:hover {
+  color: #0a58ca;
+}
+
+
+.nav-link.active {
+  color: #0a58ca;
+  font-weight: 600;
+}

@@ -1,0 +1,62 @@
+
+/* Top Bar Container */
+.topbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Indices Container */
+.indices-container {
+  display: flex;
+  gap: 32px;
+}
+
+/* Index Card Styles */
+.nifty, .sensex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #f5f7fa;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nifty:hover, .sensex:hover {
+  background: #ebeff5;
+  transform: translateY(-1px);
+}
+
+.index {
+  font-weight: 600;
+  font-size: 14px;
+  color: #3a3a3a;
+  margin: 0;
+}
+
+.index-points {
+  font-weight: 700;
+  font-size: 15px;
+  color: #2e7d32; /* Green by default */
+  margin: 0;
+}
+
+.percent {
+  font-weight: 500;
+  font-size: 13px;
+  color: #2e7d32;
+  margin: 0;
+}
+
+/* Negative state (you can add className dynamically) */
+.negative .index-points,
+.negative .percent {
+  color: #d32f2f; /* Red for negative */
+}

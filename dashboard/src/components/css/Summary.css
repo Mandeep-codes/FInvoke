@@ -1,0 +1,127 @@
+
+/* Modern Glassmorphism Style */
+.summary-container {
+  max-width: 400px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.username h6 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  position: relative;
+}
+
+.username h6::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #3f51b5, #2196f3);
+  border-radius: 3px;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3f51b5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Data Cards */
+.data-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.main-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 8px 0;
+  background: linear-gradient(90deg, #3f51b5, #2196f3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.main-value.profit {
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+}
+
+.main-value small {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.value-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* Secondary Values */
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.value-item {
+  background: rgba(245, 245, 245, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.value-item p {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.value-item span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 4px;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+  margin: 24px 0;
+}

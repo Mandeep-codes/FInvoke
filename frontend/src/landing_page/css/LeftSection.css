@@ -1,0 +1,17 @@
+.store-badge {
+  height: 45px;
+  transition: transform 0.3s ease;
+}
+
+.store-badge:hover {
+  transform: scale(1.05);
+}
+ 
+.universe-logo {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.universe-logo:hover {
+  transform: scale(1.1);
+}

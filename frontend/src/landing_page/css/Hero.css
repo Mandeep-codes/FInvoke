@@ -1,0 +1,17 @@
+.custom-btn {
+  background-color: #006eff !important;
+  border: none !important;
+  padding: 12px 32px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+}
+
+.custom-btn:hover {
+  background-color: #0056d6 !important;
+  box-shadow: 0 4px 15px rgba(0, 110, 255, 0.4);
+  transform: scale(1.05);
+}
+
+

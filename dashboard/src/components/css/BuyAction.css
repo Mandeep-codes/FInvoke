@@ -1,0 +1,113 @@
+
+  /* Floating Window Container */
+  .buy-window-container {
+    position: fixed;
+    width: 300px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    z-index: 1000;
+    user-select: none;
+    border: 1px solid #e0e0e0;
+  }
+
+  /* Window Header */
+  .window-header {
+    padding: 12px 16px;
+    background: #f5f7fa;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 600;
+    color: #202124;
+    cursor: move;
+    border-radius: 8px 8px 0 0;
+  }
+
+  /* Input Section */
+  .regular-order {
+    padding: 16px;
+  }
+
+  .inputs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  fieldset {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 8px 10px;
+    flex: 1;
+    margin: 0;
+  }
+
+  legend {
+    font-size: 12px;
+    color: #5f6368;
+    padding: 0 4px;
+    font-weight: 500;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #202124;
+    padding: 4px 0;
+  }
+
+  /* Buttons Section */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .buttons span {
+    font-size: 13px;
+    color: #5f6368;
+    font-weight: 500;
+  }
+
+  .buttons div {
+    display: flex;
+    gap: 8px;
+  }
+
+  /* Button Styles */
+  .btn {
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-blue {
+    background: #1a73e8;
+    color: white;
+  }
+
+  .btn-blue:hover {
+    background: #0d62c9;
+  }
+
+  .btn-grey {
+    background: #f1f3f4;
+    color: #3c4043;
+  }
+
+  .btn-grey:hover {
+    background: #e0e0e0;
+  }

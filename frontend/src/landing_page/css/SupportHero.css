@@ -1,0 +1,89 @@
+.support-hero-section {
+  background-color: #1e73e2;
+  padding: 4rem 1rem;
+  color: white;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #cfe2ff;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.quick-links a {
+  margin-right: 1rem;
+  font-size: 0.875rem;
+  color: #d6e4ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.quick-links a:hover {
+  color: #fff;
+}
+
+.featured-box {
+  background-color: #1565c0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.featured-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.featured-header h6 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.track-ticket {
+  font-size: 0.875rem;
+  color: #bbdefb;
+  text-decoration: none;
+}
+
+.track-ticket:hover {
+  color: #fff;
+}
+
+.featured-list {
+  list-style: decimal inside;
+  padding-left: 0;
+}
+
+.featured-list li {
+  margin-bottom: 0.75rem;
+}
+
+.featured-list a {
+  color: #e3f2fd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.featured-list a:hover {
+  color: #fff;
+}

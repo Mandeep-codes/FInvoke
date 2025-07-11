@@ -1,0 +1,39 @@
+
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+.glass-effect {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.glass-card {
+  background-color: white;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 110, 255, 0.08);
+  transform: translateY(-4px);
+}
+
+
+.pricing-link {
+  color: #006eff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block; /* Important for transform to work */
+}
+
+.pricing-link:hover {
+  text-decoration: underline;
+  transform: translateX(4px);
+  color: #004ecb;
+}

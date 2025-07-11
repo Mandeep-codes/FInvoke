@@ -1,0 +1,147 @@
+
+/* Container Styles */
+.watchlist-container {
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.search {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+
+.search:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+.counts {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* List Items */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.list li {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.list li:hover {
+  transform: translateY(-2px);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.item p {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.price {
+  font-weight: 600;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Price Indicators */
+.up {
+  color: #2e7d32;
+}
+
+.down {
+  color: #d32f2f;
+}
+
+/* Action Buttons */
+.actions {
+  margin-left: 15px;
+}
+
+.actions button {
+  padding: 6px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.buy {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.buy:hover {
+  background: #c8e6c9;
+}
+
+.sell {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.sell:hover {
+  background: #ffcdd2;
+}
+
+.action {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 6px !important;
+}
+
+.action:hover {
+  background: #bbdefb;
+}
+
+.icon {
+  font-size: 18px !important;
+}
