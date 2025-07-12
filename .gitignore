@@ -20,8 +20,8 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Ignore .env only inside backend
-/backend/.env
+
+.env
 
 # React build files
 /frontend/node_modules/
