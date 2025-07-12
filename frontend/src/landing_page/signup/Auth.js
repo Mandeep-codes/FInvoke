@@ -30,7 +30,7 @@ const Auth = () => {
       console.log("Stored userId in localStorage:", userId);
 
       
-      window.location.href = `http://localhost:4000/dashboard?userId=${userId}`;
+      window.location.href = `https://finvoke-2.onrender.com/dashboard?userId=${userId}`;
 ;
 
     } catch (err) {

@@ -21,7 +21,7 @@ const Menu = () => {
         method: "POST",
         credentials: "include",
       });
-      window.location.href = "http://localhost:3000"; 
+      window.location.href = "https://finvoke-1.onrender.com"; 
     } catch (err) {
       console.error("Logout failed:", err);
     }

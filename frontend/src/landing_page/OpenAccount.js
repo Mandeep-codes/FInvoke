@@ -13,7 +13,7 @@ function OpenAccount() {
             </h1>
             <p>Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and F&O trades </p>
 
-            <button
+            <button 
               className="btn custom-btn btn-lg mt-3 "
             >
               Sign up Now

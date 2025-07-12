@@ -23,7 +23,7 @@ const Dashboard = () => {
         setUser(res.data.user);
       } catch (err) {
         console.error("User not authenticated", err);
-        window.location.href = "http://localhost:3000"; 
+        window.location.href = "https://finvoke-1.onrender.com"; 
       }
     };
 
