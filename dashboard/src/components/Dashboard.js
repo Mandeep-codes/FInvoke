@@ -25,26 +25,28 @@ const Dashboard = () => {
     } catch (err) {
       console.warn("❌ Cookie auth failed. Trying fallback...");
 
-      const params = new URLSearchParams(window.location.search);
-      const userId = params.get("userId");
-      console.log("🔍 userId from URL:", userId);
+     const params = new URLSearchParams(window.location.search);
+const userId = params.get("userId");
 
-      if (userId) {
-        const fallbackUrl = `${import.meta.env.VITE_API_BASE_URL}/api/auth/${userId}`;
-        console.log("📡 Fetching fallback from:", fallbackUrl);
+console.log("🔍 userId from URL:", userId); // ✅ STEP 1a
 
-        try {
-          const res = await axios.get(fallbackUrl);
-          console.log("✅ Fallback fetched user:", res.data.user);
-          setUser(res.data.user);
-        } catch (e) {
-          console.error("❌ Fallback fetch failed:", e);
-          window.location.href = "https://finvoke-1.onrender.com";
-        }
-      } else {
-        console.warn("❌ No userId found in URL");
-        window.location.href = "https://finvoke-1.onrender.com";
-      }
+if (userId) {
+  try {
+    console.log("🌐 Calling:", `${import.meta.env.VITE_API_BASE_URL}/api/auth/${userId}`); // ✅ STEP 1b
+
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/${userId}`);
+    console.log("✅ User fetched:", res.data.user); // ✅ STEP 1c
+
+    setUser(res.data.user);
+  } catch (e) {
+    console.error("❌ Failed to fetch user by ID", e);
+    window.location.href = "https://finvoke-1.onrender.com";
+  }
+} else {
+  console.warn("⚠️ No userId in URL");
+  window.location.href = "https://finvoke-1.onrender.com";
+}
+
     }
   };
 
