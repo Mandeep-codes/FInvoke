@@ -8,7 +8,7 @@ const Holdings = () => {
 
   useEffect(() => {
     axios
-      .get(`https://finvoke.onrender.com}/allHoldings`)
+      .get(`https://finvoke.onrender.com/allHoldings`)
       .then((res) => {
         setAllHoldings(res.data);
       })
