@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
 import "./css/BuyAction.css";
@@ -11,11 +11,21 @@ const BuyActionWindow = ({ uid }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
+  const { closeBuyWindow, userId } = useContext(GeneralContext); // ✅ CORRECT placement
+
   const handleBuyClick = async () => {
-    console.log("Buy Clicked");
+    console.log("🧾 Buying as:", userId);
+    const totalAmount = stockQuantity * stockPrice;
 
     try {
-      const res = await axios.post(
+      // 1. Deduct funds
+      const fundsRes = await axios.post("http://localhost:5000/api/funds/buy", {
+        userId,
+        amount: totalAmount,
+      });
+
+      // 2. Place order
+      const orderRes = await axios.post(
         "http://localhost:5000/api/orders",
         {
           name: uid,
@@ -28,15 +38,18 @@ const BuyActionWindow = ({ uid }) => {
         }
       );
 
-      console.log("Order placed:", res.data);
-      GeneralContext.closeBuyWindow();
+      console.log("✅ Funds updated:", orderRes.data);
+      closeBuyWindow();
     } catch (err) {
-      console.error("Error placing order:", err.response?.data || err.message);
+      console.error(
+        "❌ Error placing order or updating funds:",
+        err.response?.data || err.message
+      );
     }
   };
 
   const handleCancelClick = () => {
-    GeneralContext.closeBuyWindow();
+    closeBuyWindow();
   };
 
   // Drag functionality
@@ -49,9 +62,7 @@ const BuyActionWindow = ({ uid }) => {
       });
     };
 
-    const handleMouseUp = () => {
-      setIsDragging(false);
-    };
+    const handleMouseUp = () => setIsDragging(false);
 
     if (isDragging) {
       document.addEventListener("mousemove", handleMouseMove);
@@ -66,7 +77,6 @@ const BuyActionWindow = ({ uid }) => {
 
   const handleMouseDown = (e) => {
     if (e.target.closest("input, button, a")) return;
-
     const rect = windowRef.current.getBoundingClientRect();
     setOffset({
       x: e.clientX - rect.left,
@@ -79,7 +89,6 @@ const BuyActionWindow = ({ uid }) => {
     <div
       ref={windowRef}
       className="buy-window-container"
-      id="buy-window"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
@@ -88,6 +97,7 @@ const BuyActionWindow = ({ uid }) => {
       onMouseDown={handleMouseDown}
     >
       <div className="window-header">Buy {uid}</div>
+
       <div className="regular-order">
         <div className="inputs">
           <fieldset>
@@ -96,7 +106,7 @@ const BuyActionWindow = ({ uid }) => {
               type="number"
               name="qty"
               id="qty"
-              onChange={(e) => setStockQuantity(e.target.value)}
+              onChange={(e) => setStockQuantity(Number(e.target.value))}
               value={stockQuantity}
             />
           </fieldset>
@@ -107,7 +117,7 @@ const BuyActionWindow = ({ uid }) => {
               name="price"
               id="price"
               step="0.05"
-              onChange={(e) => setStockPrice(e.target.value)}
+              onChange={(e) => setStockPrice(Number(e.target.value))}
               value={stockPrice}
             />
           </fieldset>
@@ -115,7 +125,7 @@ const BuyActionWindow = ({ uid }) => {
       </div>
 
       <div className="buttons">
-        <span>Margin required ₹140.65</span>
+        <span>Margin required ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
         <div>
           <button className="btn btn-blue" onClick={handleBuyClick}>
             Buy
@@ -130,3 +140,6 @@ const BuyActionWindow = ({ uid }) => {
 };
 
 export default BuyActionWindow;
+
+
+

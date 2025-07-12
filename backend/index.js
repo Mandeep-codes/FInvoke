@@ -8,7 +8,7 @@ const authRoutes = require("./Routes/authRoutes");
 const ordersRoutes = require("./Routes/orders"); 
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionModel");
-
+const fundsRoutes = require("./Routes/funds.js");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -25,7 +25,8 @@ app.use(
 
 // Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/orders", ordersRoutes); 
+app.use("/api/orders", ordersRoutes);
+app.use('/api/funds', fundsRoutes); 
 
 // Public holdings
 app.get("/allHoldings", async (req, res) => {

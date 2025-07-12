@@ -34,7 +34,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <GeneralContextProvider>
+      <GeneralContextProvider userId={user._id}>
         <WatchList />
       </GeneralContextProvider>
 
@@ -49,7 +49,8 @@ const Dashboard = () => {
           <Route path="/orders" element={<Orders />} />
           <Route path="/holdings" element={<Holdings />} />
           <Route path="/positions" element={<Positions />} />
-          <Route path="/funds" element={<Funds />} />
+          <Route path="/funds" element={<Funds userId={user._id} />} />
+
           <Route path="/apps" element={<Apps />} />
         </Routes>
       </div>

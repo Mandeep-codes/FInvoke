@@ -19,12 +19,19 @@ const Auth = () => {
 
     try {
       const res = await axios.post(url, form, { withCredentials: true });
+      
+
+      console.log("Auth response:", res.data);
 
       const userId = res.data.user;
       if (!userId) throw new Error("No user ID returned");
 
+      localStorage.setItem("userId", userId);
+      console.log("Stored userId in localStorage:", userId);
+
       
-      window.location.href = 'http://localhost:4000/dashboard';
+      window.location.href = `http://localhost:4000/dashboard?userId=${userId}`;
+;
 
     } catch (err) {
       alert(err.response?.data?.msg || "Something went wrong");

@@ -1,12 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './css/Fund.css'
-const Funds = () => {
+import "./css/Fund.css";
+import axios from "axios";
+
+const Funds = ({ userId }) => {
+  const [funds, setFunds] = useState({
+    availableMargin: 0,
+    usedMargin: 0,
+    availableCash: 0,
+    openingBalance: 0,
+  });
+
+  const fetchFunds = async () => {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/funds/${userId}`);
+      setFunds(res.data);
+    } catch (err) {
+      console.error("Error fetching funds:", err);
+    }
+  };
+
+  const handleAddFunds = async () => {
+    const amount = prompt("Enter amount to add:");
+    if (!amount || isNaN(amount)) return;
+
+    try {
+      const res = await axios.post("http://localhost:5000/api/funds/add", {
+        userId,
+        amount: parseFloat(amount),
+      });
+      setFunds(res.data);
+    } catch (err) {
+      console.error("Failed to add funds:", err);
+    }
+  };
+
+  useEffect(() => {
+    if (userId) {fetchFunds()};
+  }, [userId]);
+
   return (
     <>
       <div className="funds">
-        <p>Instant, zero-cost fund transfers with UPI </p>
-        <Link className="btn btn-green">Add funds</Link>
+        <p>Instant, zero-cost fund transfers with UPI</p>
+        <button className="btn btn-green" onClick={handleAddFunds}>
+          Add funds
+        </button>
         <Link className="btn btn-blue">Withdraw</Link>
       </div>
 
@@ -19,24 +58,20 @@ const Funds = () => {
           <div className="table">
             <div className="data">
               <p>Available margin</p>
-              <p className="imp colored">4,043.10</p>
+              <p className="imp colored">{funds.availableMargin.toFixed(2)}</p>
             </div>
             <div className="data">
               <p>Used margin</p>
-              <p className="imp">3,757.30</p>
+              <p className="imp">{funds.usedMargin.toFixed(2)}</p>
             </div>
             <div className="data">
               <p>Available cash</p>
-              <p className="imp">4,043.10</p>
+              <p className="imp">{funds.availableCash.toFixed(2)}</p>
             </div>
             <hr />
             <div className="data">
               <p>Opening Balance</p>
-              <p>4,043.10</p>
-            </div>
-            <div className="data">
-              <p>Opening Balance</p>
-              <p>3736.40</p>
+              <p>{funds.openingBalance.toFixed(2)}</p>
             </div>
             <div className="data">
               <p>Payin</p>
@@ -86,3 +121,4 @@ const Funds = () => {
 };
 
 export default Funds;
+
