@@ -15,38 +15,42 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const loadUser = async () => {
-      try {
-        // 1. Try to get from backend (if cookie exists)
-        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
-          withCredentials: true,
-        });
-        setUser(res.data.user);
-      } catch (err) {
-        console.warn("Auth failed, trying URL fallback");
+  const loadUser = async () => {
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
+        withCredentials: true,
+      });
+      console.log("✅ Cookie-authenticated user:", res.data.user);
+      setUser(res.data.user);
+    } catch (err) {
+      console.warn("❌ Cookie auth failed. Trying fallback...");
 
-        // 2. Fallback to userId from URL
-        const params = new URLSearchParams(window.location.search);
-        const userId = params.get("userId");
+      const params = new URLSearchParams(window.location.search);
+      const userId = params.get("userId");
+      console.log("🔍 userId from URL:", userId);
 
-        if (userId) {
-          // Optional: fetch basic user info if needed
-          try {
-            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/${userId}`);
-            setUser(res.data.user);
-          } catch (e) {
-            console.error("Failed to fetch user by ID");
-            window.location.href = "https://finvoke-1.onrender.com";
-          }
-        } else {
-          // No fallback available
+      if (userId) {
+        const fallbackUrl = `${import.meta.env.VITE_API_BASE_URL}/api/auth/${userId}`;
+        console.log("📡 Fetching fallback from:", fallbackUrl);
+
+        try {
+          const res = await axios.get(fallbackUrl);
+          console.log("✅ Fallback fetched user:", res.data.user);
+          setUser(res.data.user);
+        } catch (e) {
+          console.error("❌ Fallback fetch failed:", e);
           window.location.href = "https://finvoke-1.onrender.com";
         }
+      } else {
+        console.warn("❌ No userId found in URL");
+        window.location.href = "https://finvoke-1.onrender.com";
       }
-    };
+    }
+  };
 
-    loadUser();
-  }, []);
+  loadUser();
+}, []);
+
 
   if (!user) return <div className="p-4">Loading your dashboard...</div>;
 

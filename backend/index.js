@@ -17,7 +17,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["https://finvoke-1.onrender.com", "https://finvoke-2.onrender.com"],
+    origin: [
+      "https://finvoke-1.onrender.com",
+      "https://finvoke-2.onrender.com",
+    ],
     credentials: true,
   })
 );
