@@ -8,7 +8,7 @@ const Holdings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allHoldings")
+      .get(`${import.meta.env.VITE_API_BASE_URL}/allHoldings`)
       .then((res) => {
         setAllHoldings(res.data);
       })

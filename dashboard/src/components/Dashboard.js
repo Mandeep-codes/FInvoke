@@ -17,13 +17,13 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/me", {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
           withCredentials: true,
         });
         setUser(res.data.user);
       } catch (err) {
         console.error("User not authenticated", err);
-        window.location.href = "http://localhost:3000"; // redirect to login
+        window.location.href = "http://localhost:3000"; 
       }
     };
 

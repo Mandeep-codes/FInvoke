@@ -4,7 +4,7 @@ import BuyActionWindow from "./BuyActionWindow";
 const GeneralContext = React.createContext({
   openBuyWindow: (uid) => {},
   closeBuyWindow: () => {},
-  userId: null, // ✅ Add this
+  userId: null, 
 });
 
 export const GeneralContextProvider = ({ children, userId }) => {
@@ -31,7 +31,7 @@ export const GeneralContextProvider = ({ children, userId }) => {
       }}
     >
       {children}
-      {isBuyWindowOpen && <BuyActionWindow uid={selectedStockUID} />} {/* ✅ It will use context */}
+      {isBuyWindowOpen && <BuyActionWindow uid={selectedStockUID} />} 
     </GeneralContext.Provider>
   );
 };

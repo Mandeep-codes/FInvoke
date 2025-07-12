@@ -13,7 +13,7 @@ const Funds = ({ userId }) => {
 
   const fetchFunds = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/funds/${userId}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/funds/${userId}`);
       setFunds(res.data);
     } catch (err) {
       console.error("Error fetching funds:", err);
@@ -25,7 +25,7 @@ const Funds = ({ userId }) => {
     if (!amount || isNaN(amount)) return;
 
     try {
-      const res = await axios.post("http://localhost:5000/api/funds/add", {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/funds/add`, {
         userId,
         amount: parseFloat(amount),
       });

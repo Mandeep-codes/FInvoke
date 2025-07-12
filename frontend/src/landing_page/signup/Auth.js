@@ -14,8 +14,8 @@ const Auth = () => {
     e.preventDefault();
 
     const url = isSignup
-      ? "http://localhost:5000/api/auth/register"
-      : "http://localhost:5000/api/auth/login";
+      ? `${import.meta.env.VITE_API_BASE_URL}/api/auth/register`
+      : `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`;
 
     try {
       const res = await axios.post(url, form, { withCredentials: true });

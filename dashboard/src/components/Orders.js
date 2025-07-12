@@ -8,7 +8,7 @@ const Orders = () => {
 
   useEffect(() => {
   axios
-    .get("http://localhost:5000/api/orders", {
+    .get(`${import.meta.env.VITE_API_BASE_URL}/api/orders`, {
       withCredentials: true,
     })
     .then((res) => {

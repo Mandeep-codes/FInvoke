@@ -8,7 +8,7 @@ const Positions = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allPositions")
+      .get(`${import.meta.env.VITE_API_BASE_URL}/allPositions`)
       .then((res) => {
         setAllPositions(res.data);
       })

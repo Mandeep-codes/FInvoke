@@ -11,7 +11,7 @@ const BuyActionWindow = ({ uid }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  const { closeBuyWindow, userId } = useContext(GeneralContext); // ✅ CORRECT placement
+  const { closeBuyWindow, userId } = useContext(GeneralContext); 
 
   const handleBuyClick = async () => {
     console.log("🧾 Buying as:", userId);
@@ -19,14 +19,14 @@ const BuyActionWindow = ({ uid }) => {
 
     try {
       // 1. Deduct funds
-      const fundsRes = await axios.post("http://localhost:5000/api/funds/buy", {
+      const fundsRes = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/funds/buy`, {
         userId,
         amount: totalAmount,
       });
 
       // 2. Place order
       const orderRes = await axios.post(
-        "http://localhost:5000/api/orders",
+        `${import.meta.env.VITE_API_BASE_URL}/api/orders`,
         {
           name: uid,
           qty: stockQuantity,

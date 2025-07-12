@@ -8,7 +8,7 @@ const Menu = () => {
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
-    setIsProfileDropdownOpen(false); // close dropdown on menu click
+    setIsProfileDropdownOpen(false); 
   };
 
   const handleProfileClick = () => {
@@ -17,11 +17,11 @@ const Menu = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:5000/api/auth/logout", {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });
-      window.location.href = "http://localhost:3000"; // redirect to login
+      window.location.href = "http://localhost:3000"; 
     } catch (err) {
       console.error("Logout failed:", err);
     }
