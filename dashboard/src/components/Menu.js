@@ -17,7 +17,7 @@ const Menu = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`, {
+      await fetch(`https://finvoke.onrender.com/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });

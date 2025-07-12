@@ -21,7 +21,9 @@ Thumbs.db
 .idea/
 
 
-.env
+/backend/.env
+/frontend/.env
+/dashboard/.env
 
 # React build files
 /frontend/node_modules/

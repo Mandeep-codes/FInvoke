@@ -8,7 +8,7 @@ const Holdings = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/allHoldings`)
+      .get(`https://finvoke.onrender.com}/allHoldings`)
       .then((res) => {
         setAllHoldings(res.data);
       })

@@ -19,14 +19,14 @@ const BuyActionWindow = ({ uid }) => {
 
     try {
       // 1. Deduct funds
-      const fundsRes = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/funds/buy`, {
+      const fundsRes = await axios.post(`https://finvoke.onrender.com/api/funds/buy`, {
         userId,
         amount: totalAmount,
       });
 
       // 2. Place order
       const orderRes = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/api/orders`,
+        `https://finvoke.onrender.com/api/orders`,
         {
           name: uid,
           qty: stockQuantity,

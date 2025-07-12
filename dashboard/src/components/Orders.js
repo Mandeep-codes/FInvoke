@@ -8,7 +8,7 @@ const Orders = () => {
 
   useEffect(() => {
   axios
-    .get(`${import.meta.env.VITE_API_BASE_URL}/api/orders`, {
+    .get(`https://finvoke.onrender.com/api/orders`, {
       withCredentials: true,
     })
     .then((res) => {

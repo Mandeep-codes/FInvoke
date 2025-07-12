@@ -8,7 +8,7 @@ const Positions = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/allPositions`)
+      .get(`https://finvoke.onrender.com/allPositions`)
       .then((res) => {
         setAllPositions(res.data);
       })
