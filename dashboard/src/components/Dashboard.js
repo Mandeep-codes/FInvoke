@@ -15,19 +15,37 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const loadUser = async () => {
       try {
+        // 1. Try to get from backend (if cookie exists)
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
           withCredentials: true,
         });
         setUser(res.data.user);
       } catch (err) {
-        console.error("User not authenticated", err);
-        window.location.href = "https://finvoke-1.onrender.com"; 
+        console.warn("Auth failed, trying URL fallback");
+
+        // 2. Fallback to userId from URL
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get("userId");
+
+        if (userId) {
+          // Optional: fetch basic user info if needed
+          try {
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/${userId}`);
+            setUser(res.data.user);
+          } catch (e) {
+            console.error("Failed to fetch user by ID");
+            window.location.href = "https://finvoke-1.onrender.com";
+          }
+        } else {
+          // No fallback available
+          window.location.href = "https://finvoke-1.onrender.com";
+        }
       }
     };
 
-    fetchUser();
+    loadUser();
   }, []);
 
   if (!user) return <div className="p-4">Loading your dashboard...</div>;
@@ -50,7 +68,6 @@ const Dashboard = () => {
           <Route path="/holdings" element={<Holdings />} />
           <Route path="/positions" element={<Positions />} />
           <Route path="/funds" element={<Funds userId={user._id} />} />
-
           <Route path="/apps" element={<Apps />} />
         </Routes>
       </div>
@@ -59,5 +76,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
 
 

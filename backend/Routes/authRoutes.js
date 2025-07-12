@@ -24,5 +24,18 @@ router.get("/me", async (req, res) => {
   }
 });
 
+// Get user by ID (for dashboard fallback when no token is present)
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await Author.findById(req.params.id).select("-password");
+    if (!user) return res.status(404).json({ msg: "User not found" });
+    res.json({ user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server error" });
+  }
+});
+
+
 module.exports = router;
 
