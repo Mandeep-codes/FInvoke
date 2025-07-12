@@ -14,8 +14,8 @@ const Auth = () => {
     e.preventDefault();
 
     const url = isSignup
-      ? `${import.meta.env.VITE_API_BASE_URL}/api/auth/register`
-      : `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`;
+      ? `https://finvoke.onrender.com/api/auth/register`
+      : `https://finvoke.onrender.com/api/auth/login`;
 
     try {
       const res = await axios.post(url, form, { withCredentials: true });
