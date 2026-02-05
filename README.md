@@ -5,9 +5,9 @@ This was built to learn JWT cookie auth, cross-origin session handling, REST API
 Live Links:  
 Backend: https://finvoke.onrender.com  
 Frontend (Auth UI): https://finvoke-1.onrender.com  
-Dashboard (Trading UI): https://finvoke-2.onrender.com
+Dashboard (Trading UI): https://finvoke-2.onrender.com 
 
-Tech used: React, Vite, Tailwind CSS, Axios, React Router, Node.js, Express, MongoDB, Mongoose, JWT, cookie-parser, dotenv, Render
+Tech used: React, Vite, Tailwind CSS, Axios, React Router, Node.js, Express, MongoDB, Mongoose, JWT, cookie-parser, dotenv, Render.
 
 Features include:  
 - Secure cookie-based login system using JWT  
