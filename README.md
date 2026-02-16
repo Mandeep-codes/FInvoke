@@ -3,6 +3,7 @@ The project is deployed as three separate apps using Render: backend API, authen
 This was built to learn JWT cookie auth, cross-origin session handling, REST API structuring, MongoDB modeling, Vite + React integration, and multi-deployment strategies.
 
 Live Links:  
+
 Backend: https://finvoke.onrender.com  
 Frontend (Auth UI): https://finvoke-1.onrender.com  
 Dashboard (Trading UI): https://finvoke-2.onrender.com 
