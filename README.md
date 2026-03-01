@@ -1,6 +1,6 @@
 Finvoke is a full-stack simulation platform where users can register, log in, manage virtual funds, buy stocks, and track orders and positions through a React-based dashboard interface.
 The project is deployed as three separate apps using Render: backend API, authentication frontend, and trading dashboard.
-This was built to learn JWT cookie auth, cross-origin session handling, REST API structuring, MongoDB modeling, Vite + React integration, and multi-deployment strategies.
+This was built to learn JWT cookie auth, cross-origin session handling, REST API structuring, MongoDB modeling, Vite + React integration, and multi-deployment strategie.
 
 Live Links:  
 
